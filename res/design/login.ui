@@ -6,14 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>500</height>
+    <width>647</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="font">
    <font>
     <family>Monospace</family>
     <pointsize>11</pointsize>
+    <weight>50</weight>
     <bold>false</bold>
    </font>
   </property>
@@ -30,18 +31,24 @@
   <widget class="QLineEdit" name="userInput">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>260</y>
+     <x>260</x>
+     <y>280</y>
      <width>180</width>
      <height>30</height>
     </rect>
    </property>
+   <property name="text">
+    <string>melville2000</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="passwordInput">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>320</y>
+     <x>260</x>
+     <y>340</y>
      <width>180</width>
      <height>30</height>
     </rect>
@@ -52,12 +59,15 @@
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
    </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>260</y>
+     <x>150</x>
+     <y>280</y>
      <width>107</width>
      <height>30</height>
     </rect>
@@ -65,11 +75,12 @@
    <property name="font">
     <font>
      <pointsize>15</pointsize>
+     <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
    <property name="text">
-    <string>User</string>
+    <string>Username</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
@@ -81,8 +92,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>320</y>
+     <x>150</x>
+     <y>340</y>
      <width>107</width>
      <height>30</height>
     </rect>
@@ -90,6 +101,7 @@
    <property name="font">
     <font>
      <pointsize>15</pointsize>
+     <weight>50</weight>
      <bold>false</bold>
     </font>
    </property>
@@ -106,20 +118,26 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>50</y>
-     <width>481</width>
-     <height>171</height>
+     <x>70</x>
+     <y>60</y>
+     <width>511</width>
+     <height>191</height>
     </rect>
    </property>
+   <property name="toolTipDuration">
+    <number>0</number>
+   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/logo/Loginscrlogo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../../../../../../media/melville/Windows_7/Loginscrlogo.png</pixmap>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>180</x>
      <y>400</y>
      <width>111</width>
      <height>41</height>
@@ -128,10 +146,45 @@
    <property name="text">
     <string>Login</string>
    </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>400</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>340</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
   </widget>
  </widget>
  <resources>
-  <include location="../login.qrc"/>
+  <include location="../logo/Loginscrlogo.png"/>
  </resources>
  <connections/>
 </ui>
