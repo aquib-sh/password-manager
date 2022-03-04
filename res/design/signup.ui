@@ -10,6 +10,11 @@
     <height>602</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>PassVault Register</string>
   </property>
@@ -26,8 +31,14 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>melville2000</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -41,8 +52,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>13</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -68,11 +79,17 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>dsad</string>
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -92,8 +109,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>13</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -120,7 +137,7 @@
     <number>0</number>
    </property>
    <property name="text">
-    <string/>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/logo/login_screen.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="pixmap">
     <pixmap>../../../../../../../media/melville/Windows_7/Loginscrlogo.png</pixmap>
@@ -138,11 +155,17 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>sad</string>
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -162,8 +185,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>13</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -188,8 +211,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>13</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -215,11 +238,17 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>sda</string>
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -239,8 +268,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>13</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -263,6 +292,12 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Sign Up</string>
    </property>
@@ -270,14 +305,20 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>430</y>
-     <width>81</width>
+     <x>100</x>
+     <y>540</y>
+     <width>401</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="emailInput">
@@ -288,6 +329,12 @@
      <width>180</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string/>
@@ -301,6 +348,12 @@
      <width>91</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Get OTP</string>
@@ -321,6 +374,8 @@
   <zorder>emailInput</zorder>
   <zorder>pushButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../login.qrc"/>
+ </resources>
  <connections/>
 </ui>
