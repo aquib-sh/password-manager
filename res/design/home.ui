@@ -12,8 +12,8 @@
   </property>
   <property name="font">
    <font>
-    <family>Sans Serif</family>
-    <pointsize>10</pointsize>
+    <family>Monospace</family>
+    <pointsize>11</pointsize>
     <bold>false</bold>
    </font>
   </property>
@@ -32,8 +32,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -52,8 +52,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -80,8 +80,8 @@
       </property>
       <property name="font">
        <font>
-        <family>Sans Serif</family>
-        <pointsize>10</pointsize>
+        <family>Monospace</family>
+        <pointsize>11</pointsize>
         <bold>false</bold>
        </font>
       </property>
@@ -102,8 +102,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -122,8 +122,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -142,8 +142,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -162,8 +162,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -182,8 +182,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -202,8 +202,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -222,8 +222,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -242,8 +242,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -262,8 +262,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
+      <family>Monospace</family>
+      <pointsize>15</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -294,8 +294,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -314,8 +314,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -334,8 +334,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -354,8 +354,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>10</pointsize>
+      <family>Monospace</family>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -370,7 +370,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
