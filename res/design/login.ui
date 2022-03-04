@@ -6,15 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
-    <height>551</height>
+    <width>669</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>Monospace</family>
     <pointsize>11</pointsize>
-    <weight>50</weight>
     <bold>false</bold>
    </font>
   </property>
@@ -37,8 +35,15 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>11</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>melville2000</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="passwordInput">
@@ -52,6 +57,13 @@
      <width>180</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>11</pointsize>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string/>
@@ -74,8 +86,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>14</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -100,8 +112,8 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
+     <family>Monospace</family>
+     <pointsize>14</pointsize>
      <bold>false</bold>
     </font>
    </property>
@@ -115,25 +127,6 @@
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>60</y>
-     <width>511</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <property name="toolTipDuration">
-    <number>0</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../../../../../../../media/melville/Windows_7/Loginscrlogo.png</pixmap>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -142,6 +135,13 @@
      <width>111</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>11</pointsize>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>Login</string>
@@ -165,6 +165,13 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>11</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>Register</string>
    </property>
@@ -178,13 +185,33 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>11</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
     <string>Reset</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>60</y>
+     <width>501</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/logo/login_screen.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
  </widget>
  <resources>
-  <include location="../logo/Loginscrlogo.png"/>
+  <include location="../login.qrc"/>
  </resources>
  <connections/>
 </ui>
