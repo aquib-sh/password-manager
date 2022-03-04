@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>logo/login_screen_medium.png</file>
+    <file>logo/login_screen_small.png</file>
+    <file>logo/icon.png</file>
+    <file>logo/login_screen.png</file>
+  </qresource>
+</RCC>
