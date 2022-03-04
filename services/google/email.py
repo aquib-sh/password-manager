@@ -73,13 +73,13 @@ class Gmail(GoogleServices):
             service = self.service
 
         try:
-          message = (service.users().messages().send(userId=user_id, body=message)
+            message = (service.users().messages().send(userId=user_id, body=message)
                      .execute())
-          print('Message Id: %s' % message['id'])
-          return message
+            print('Message Id: %s' % message['id'])
+            return message
 
         except errors.HttpError as error:
-          print('An error occurred: %s' % error)
+            print('An error occurred: %s' % error)
 
-        #except Exception as error:
-        #  print('An error occurred: %s' % error)
+        except Exception as error:
+            print('An error occurred: %s' % error)
