@@ -10,6 +10,13 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Sans Serif</family>
+    <pointsize>10</pointsize>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>PassVault Home</string>
   </property>
@@ -23,6 +30,13 @@
       <height>631</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
@@ -35,6 +49,13 @@
       <width>481</width>
       <height>501</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
@@ -57,6 +78,13 @@
         <height>491</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sans Serif</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -72,6 +100,13 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Passwords</string>
     </property>
@@ -84,6 +119,13 @@
       <width>251</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string>ID's</string>
@@ -98,6 +140,13 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Log Out</string>
     </property>
@@ -110,6 +159,13 @@
       <width>271</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -124,6 +180,13 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -136,6 +199,13 @@
       <width>271</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -150,6 +220,13 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -163,47 +240,31 @@
       <height>17</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>261</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="toolTipDuration">
-     <number>0</number>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../../../../../media/melville/Windows_7/Loginscrlogo.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
-      <width>261</width>
-      <height>81</height>
+      <y>110</y>
+      <width>171</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>29</pointsize>
+      <family>Sans Serif</family>
+      <pointsize>14</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="focusPolicy">
@@ -231,6 +292,13 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Payment Info</string>
     </property>
@@ -243,6 +311,13 @@
       <width>101</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string>Add</string>
@@ -257,8 +332,35 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>261</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sans Serif</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/logo/login_screen_medium.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -268,12 +370,14 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../login.qrc"/>
+ </resources>
  <connections/>
 </ui>
