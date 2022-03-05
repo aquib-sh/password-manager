@@ -14,6 +14,7 @@
    <font>
     <family>Monospace</family>
     <pointsize>11</pointsize>
+    <weight>50</weight>
     <bold>false</bold>
    </font>
   </property>
@@ -34,6 +35,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -54,6 +56,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -82,6 +85,7 @@
        <font>
         <family>Monospace</family>
         <pointsize>11</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -104,6 +108,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -124,6 +129,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -144,6 +150,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -164,6 +171,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -184,6 +192,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -204,6 +213,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -224,6 +234,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -231,27 +242,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>90</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Monospace</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="username_lbl">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -264,6 +255,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>15</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -296,6 +288,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -303,7 +296,7 @@
      <string>Payment Info</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="add_btn">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -316,6 +309,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -323,7 +317,7 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="delete_btn">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -336,6 +330,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
@@ -347,7 +342,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>10</y>
       <width>261</width>
       <height>101</height>
      </rect>
@@ -356,6 +351,7 @@
      <font>
       <family>Monospace</family>
       <pointsize>11</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
