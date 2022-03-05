@@ -275,7 +275,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="payment_inf_btn">
+   <widget class="QPushButton" name="pay_info_btn">
     <property name="geometry">
      <rect>
       <x>30</x>
