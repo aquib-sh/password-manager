@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from pass_vault_ui import login_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -167,7 +167,6 @@ class Ui_Form(object):
         self.sign_up_btn.setText(_translate("Form", "Sign Up"))
         self.get_otp_btn.setText(_translate("Form", "Get OTP"))
         self.label_4.setText(_translate("Form", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen.png\"/></p></body></html>"))
-import login_rc
 
 
 if __name__ == "__main__":

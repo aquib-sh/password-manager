@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from pass_vault_ui import login_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -201,9 +201,6 @@ class Ui_MainWindow(object):
         self.add_btn.setText(_translate("MainWindow", "Add"))
         self.delete_btn.setText(_translate("MainWindow", "Delete"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen_medium.png\"/></p></body></html>"))
-import login_rc
-
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

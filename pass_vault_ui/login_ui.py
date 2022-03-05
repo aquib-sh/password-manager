@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from pass_vault_ui import login_rc
 
 
 class Ui_Form(object):
@@ -118,7 +119,6 @@ class Ui_Form(object):
         self.register_btn.setText(_translate("Form", "Register"))
         self.reset_btn.setText(_translate("Form", "Reset"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen.png\"/></p></body></html>"))
-import login_rc
 
 
 if __name__ == "__main__":
