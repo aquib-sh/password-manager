@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from pass_vault_ui import login_rc
+from pass_vault_ui.layouts import login_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
