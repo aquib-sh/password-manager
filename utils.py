@@ -45,7 +45,6 @@ class OTPGenerator:
         :str
             String of random numeric characters.
         """
-
         otp = ""
         i = 0;
 
