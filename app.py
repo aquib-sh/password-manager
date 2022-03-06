@@ -5,6 +5,7 @@ from pass_vault_ui import (
     login_screen,
     signup_screen,
     edit_password_screen
+    reset_password_screen
 )
 
 class PassVault:
@@ -14,6 +15,7 @@ class PassVault:
         self.home_window = home_screen.HomeWindow()
         self.signup_window = signup_screen.SignUpWindow()
         self.edit_password_window = edit_password_screen.EditPasswordWindow()
+        self.reset_password_window = reset_password_screen.reset_password_screen.ResetPasswordWindow()
         self.setup_connections()
 
     def setup_connections(self):
@@ -33,6 +35,12 @@ class PassVault:
         self.edit_password_window.connect_clipboard_btn(self.copy_to_clipboard)
         self.edit_password_window.connect_generate_btn(self.generate_password)
         self.edit_password_window.connect_save_btn(self.save_value)
+
+        self.reset_password_window.connect_otp_btn(self.send_otp)
+        self.reset_password_window.connect_reset_btn(self.reset_value)
+
+    def reset_value(self):
+        pass
 
     def show_register_screen(self):
         self.signup_window.show()
