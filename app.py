@@ -4,7 +4,7 @@ from pass_vault_ui import (
     home_screen,
     login_screen,
     signup_screen,
-    edit_password_screen
+    edit_password_screen,
     reset_password_screen
 )
 
@@ -15,12 +15,12 @@ class PassVault:
         self.home_window = home_screen.HomeWindow()
         self.signup_window = signup_screen.SignUpWindow()
         self.edit_password_window = edit_password_screen.EditPasswordWindow()
-        self.reset_password_window = reset_password_screen.reset_password_screen.ResetPasswordWindow()
+        self.reset_password_window = reset_password_screen.ResetPasswordWindow()
         self.setup_connections()
 
     def setup_connections(self):
         """Makes connection between window buttons and methods."""
-        self.login_window.connect_login_btn(self.show_home_screen)
+        self.login_window.connect_login_btn(self.login)
         self.login_window.connect_register_btn(self.show_register_screen)
         self.login_window.connect_reset_btn(self.show_reset_screen)
 
@@ -45,12 +45,22 @@ class PassVault:
     def show_register_screen(self):
         self.signup_window.show()
 
-    def show_home_screen(self):
-        self.login_window.close()
-        self.home_window.show()
+    def valid_credentials(self, username, password) -> bool:
+        """Checks whether the username and password exists in database."""
+        pass
+
+    def login(self):
+        username = self.login_window.get_username()
+        password = self.login_window.get_password()
+        if valid_credentials:
+            self.login_window.close()
+            self.home_window.show()
 
     def show_add_screen(self):
         self.edit_password_window.show()
+
+    def show_reset_screen(self):
+        self.reset_password_window.show()
 
     def save_value(self):
         pass
@@ -74,9 +84,6 @@ class PassVault:
         pass
 
     def delete_values(self):
-        pass
-
-    def show_reset_screen(self):
         pass
 
 if __name__ == "__main__":
