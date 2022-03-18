@@ -10,12 +10,11 @@ class CryptEngine():
     def encrypt_message(self, message, key):
         encoded_message = message.encode()
         f = Fernet(key)
-        encrypted_message = f.encrypt(message)
+        encrypted_message = f.encrypt(encoded_message).decode()
         return encrypted_message
 
     def decrypt_message(self, message, key):
         encoded_message = message.encode()
         f = Fernet(key)
-        decrypted_message = f.decrypt(message)
+        decrypted_message = f.decrypt(encoded_message).decode()
         return decrypted_message
-
