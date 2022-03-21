@@ -18,3 +18,21 @@ class EditPasswordWindow(QMainWindow):
     
     def connect_clipboard_btn(self, event):
         self.__edit_password_ui.clipboard_btn.clicked.connect(event)
+
+    def get_site_value(self):
+        return self.__edit_password_ui.site_name_input.text()
+
+    def get_username_value(self):
+        return self.__edit_password_ui.username_input.text()
+
+    def get_password_value(self):
+        return self.__edit_password_ui.password_input.text()
+
+    def get_url_value(self):
+        return self.__edit_password_ui.website_input.text()
+
+    def clear_inputs(self):
+        self.__edit_password_ui.site_name_input.clear()
+        self.__edit_password_ui.username_input.clear()
+        self.__edit_password_ui.website_input.clear()
+        self.__edit_password_ui.password_input.clear()
