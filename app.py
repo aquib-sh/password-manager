@@ -47,12 +47,14 @@ class PassVault:
 
     def valid_credentials(self, username, password) -> bool:
         """Checks whether the username and password exists in database."""
-        pass
+        return True
 
     def login(self):
         username = self.login_window.get_username()
         password = self.login_window.get_password()
-        if valid_credentials:
+        creds_are_valid = self.valid_credentials(username, password)
+
+        if creds_are_valid:
             self.login_window.close()
             self.home_window.show()
 
