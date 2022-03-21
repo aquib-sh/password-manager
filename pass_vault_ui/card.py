@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import (
 
 class DataCard:
     """Cards are the units displayed on home screen containing information."""
-    def __init__(self, layout):
+    def __init__(self, layout: QVBoxLayout):
         self.CARD_SIZE = (400, 150)
         self.ROW_SIZE = (350, 40)
         self.ROW_KEY_SIZE = (100, 30)
@@ -36,6 +36,10 @@ class DataCard:
 
     def attach_to_layout(self):
         self.parent.addWidget(self.card)
+
+    def detach_from_layout(self):
+        #self.parent.removeWidget(self.card)
+        self.parent.remove()
     
     def insert_data(self):
         """Adds complete data to the card."""
@@ -50,7 +54,7 @@ class PasswordCard(DataCard):
     def __init__(self, layout):
         super().__init__(layout)
         
-    def insert_data(self, user, password):
+    def insert_data(self, user, password, site=""):
         self.style_card()
         layout = QVBoxLayout()
 
@@ -58,7 +62,7 @@ class PasswordCard(DataCard):
         entry2 = QWidget()
         entry3 = QWidget()
 
-        self.__insert_row(entry1, "Site", "https://www.google.com")
+        self.__insert_row(entry1, "Site", site)
         self.__insert_row(entry2, "User", user)
         self.__insert_row(entry3, "Password", password)
 
