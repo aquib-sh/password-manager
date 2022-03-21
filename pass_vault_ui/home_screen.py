@@ -15,3 +15,6 @@ class HomeWindow(QMainWindow):
 
     def connect_delete_btn(self, event):
         self.home_ui.delete_btn.clicked.connect(event)
+
+    def set_layout(self, layout):
+        self.home_ui.scrollAreaWidgetContents.setLayout(layout)
