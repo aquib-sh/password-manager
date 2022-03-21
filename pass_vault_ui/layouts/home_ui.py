@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
+        #self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea.setGeometry(QtCore.QRect(300, 10, 481, 501))
         font = QtGui.QFont()
         font.setFamily("Monospace")
