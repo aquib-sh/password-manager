@@ -1,22 +1,22 @@
 import sys
 from PyQt5.QtWidgets import QApplication
-from pass_vault_ui import (
-    home_screen,
-    login_screen,
-    signup_screen,
-    edit_password_screen,
-    reset_password_screen
-)
+from pass_vault_ui.home_screen import HomeWindow
+from pass_vault_ui.login_screen import LoginWindow
+from pass_vault_ui.signup_screen import SignUpWindow
+from pass_vault_ui.edit_password_screen import EditPasswordWindow
+from pass_vault_ui.reset_password_screen import ResetPasswordWindow
+from pass_vault_ui.layout_manager import LayoutManager
 
 class PassVault:
     def __init__(self):
         self.app = QApplication(sys.argv)
-        self.login_window = login_screen.LoginWindow()
-        self.home_window = home_screen.HomeWindow()
-        self.signup_window = signup_screen.SignUpWindow()
-        self.edit_password_window = edit_password_screen.EditPasswordWindow()
-        self.reset_password_window = reset_password_screen.ResetPasswordWindow()
+        self.login_window = LoginWindow()
+        self.home_window = HomeWindow()
+        self.signup_window = SignUpWindow()
+        self.edit_password_window = EditPasswordWindow()
+        self.reset_password_window = ResetPasswordWindow()
         self.setup_connections()
+        self.layout_manager = LayoutManager(self)
 
     def setup_connections(self):
         """Makes connection between window buttons and methods."""
@@ -65,7 +65,9 @@ class PassVault:
         self.reset_password_window.show()
 
     def save_value(self):
-        pass
+        site, website, user, password = self.layout_manager.create_card()
+        print(f"[+] New Card created with\nUser: {user}\nPassword: {password}")
+        self.edit_password_window.clear_inputs()
 
     def generate_password(self):
         pass
@@ -74,7 +76,8 @@ class PassVault:
         pass
 
     def go_back_to_homescreen(self):
-        pass
+        self.layout_manager.delete_card()
+        self.edit_password_window.close()
 
     def signup(self):
         pass
