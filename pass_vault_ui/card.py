@@ -39,7 +39,7 @@ class DataCard:
 
     def detach_from_layout(self):
         #self.parent.removeWidget(self.card)
-        self.parent.remove()
+        self.card.setParent(None)
     
     def insert_data(self):
         """Adds complete data to the card."""
@@ -50,26 +50,56 @@ class DataCard:
         pass
 
 class PasswordCard(DataCard):
-    """Card containing information of website, username/email and password."""
+    """Card containing information of website, username/email and password.
+    
+      -------- LAYOUT DESCRIPTION OF A PASSWORD CARD -----------------
+      |  --------------QVBoxLayout (Vertical Layout)--------------   |   
+      |  |    ------- QHBoxLayout (Horizontal Layout)---------    |  |
+      |  |    |            -------------                      |   |  |
+      |  |    |           | key | value |                     |   |  |
+      |  |    |            -------------                      |   |  |
+      |  |    -------------------------------------------------   |  |
+      |  |  ----------------------------------------------------- |  |
+      |  |                                                        |  | 
+      |  |    ------- QHBoxLayout (Horizontal Layout)---------    |  |
+      |  |    |            -------------                      |   |  |
+      |  |    |           | key | value |                     |   |  |
+      |  |    |            -------------                      |   |  |
+      |  |    -------------------------------------------------   |  |
+      |  |  ----------------------------------------------------- |  |
+      |  |                                                        |  | 
+      |  |    ------- QHBoxLayout (Horizontal Layout)---------    |  |
+      |  |    |            -------------                      |   |  |
+      |  |    |           | key | value |                     |   |  |
+      |  |    |            -------------                      |   |  |
+      |  |    -------------------------------------------------   |  |
+      |  |------------------------------------------------------- |  |
+      |--------------------------------------------------------------|
+    """
     def __init__(self, layout):
         super().__init__(layout)
-        
+        self.layout = QVBoxLayout()
+        self.entry1 = QWidget()
+        self.entry2 = QWidget()
+        self.entry3 = QWidget()
+
+
     def insert_data(self, user, password, site=""):
+        """The insertion of data take place in 2 steps,
+        First there is a vertical layout in which rows are 3 rows are inserted into QVBoxLayout 
+        In next step we place a horizontal layout in each of these 3 rows, so that each QHBoxLayout has
+        key: value in them and a QVBoxLayout has 3 of such QHBoxLayout.
+        """
         self.style_card()
-        layout = QVBoxLayout()
 
-        entry1 = QWidget()
-        entry2 = QWidget()
-        entry3 = QWidget()
+        self.__insert_row(self.entry1, "Site", site)
+        self.__insert_row(self.entry2, "User", user)
+        self.__insert_row(self.entry3, "Password", password)
 
-        self.__insert_row(entry1, "Site", site)
-        self.__insert_row(entry2, "User", user)
-        self.__insert_row(entry3, "Password", password)
-
-        layout.addWidget(entry1)
-        layout.addWidget(entry2)
-        layout.addWidget(entry3)
-        self.card.setLayout(layout)
+        self.layout.addWidget(self.entry1)
+        self.layout.addWidget(self.entry2)
+        self.layout.addWidget(self.entry3)
+        self.card.setLayout(self.layout)
         self.attach_to_layout()
 
     def __insert_row(self, widget, key, value):
