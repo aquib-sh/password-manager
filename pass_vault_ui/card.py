@@ -1,7 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtWidgets import (
-    QApplication,
+    QCheckBox,
     QVBoxLayout, 
     QHBoxLayout,
     QPushButton,
@@ -11,13 +11,12 @@ from PyQt5.QtWidgets import (
 
 class DataCard:
     """Cards are the units displayed on home screen containing information."""
-    def __init__(self, layout: QVBoxLayout):
+    def __init__(self):
         self.CARD_SIZE = (400, 150)
         self.ROW_SIZE = (350, 40)
         self.ROW_KEY_SIZE = (100, 30)
         self.ROW_VALUE_SIZE = (270, 30)
 
-        self.parent = layout
         self.card = QPushButton()
 
     def style_card(self):
@@ -34,8 +33,8 @@ class DataCard:
                                 border-radius: 20px;
                             }""")
 
-    def attach_to_layout(self):
-        self.parent.addWidget(self.card)
+    def attach_to_layout(self, layout):
+        layout.addWidget(self.card)
 
     def detach_from_layout(self):
         #self.parent.removeWidget(self.card)
@@ -76,13 +75,12 @@ class PasswordCard(DataCard):
       |  |------------------------------------------------------- |  |
       |--------------------------------------------------------------|
     """
-    def __init__(self, layout):
-        super().__init__(layout)
+    def __init__(self):
+        super().__init__()
         self.layout = QVBoxLayout()
         self.entry1 = QWidget()
         self.entry2 = QWidget()
         self.entry3 = QWidget()
-
 
     def insert_data(self, user, password, site=""):
         """The insertion of data take place in 2 steps,
@@ -100,7 +98,6 @@ class PasswordCard(DataCard):
         self.layout.addWidget(self.entry2)
         self.layout.addWidget(self.entry3)
         self.card.setLayout(self.layout)
-        self.attach_to_layout()
 
     def __insert_row(self, widget, key, value):
         widget.setFixedSize(QtCore.QSize(
@@ -121,3 +118,27 @@ class PasswordCard(DataCard):
         layout.addWidget(key)
         layout.addWidget(value)
         widget.setLayout(layout)
+
+class CardWrapper:
+    def __init__(self, layout: QVBoxLayout, card: DataCard):
+        self.__parent = layout
+        self.__card = card
+        self.__layout = QHBoxLayout()
+        self.__wrapper = QWidget()
+        self.__checkbox = QCheckBox()
+
+    def wrap(self):
+        """Wraps card into the wrapper with a checkbox on right side."""
+        self.__card.attach_to_layout(self.__layout)
+        self.__layout.addWidget(self.__checkbox)
+        self.__wrapper.setLayout(self.__layout)
+        self.attach_to_layout()
+
+    def is_checked(self):
+        return self.__checkbox.isChecked()
+        
+    def attach_to_layout(self):
+        self.__parent.addWidget(self.__wrapper)
+
+    def detach_from_layout(self):
+        self.__wrapper.setParent(None)
