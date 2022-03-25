@@ -76,6 +76,20 @@ class QueryGenerator:
             password, current_datetime, current_datetime)
         return (query, params)
 
+    def delete_password(self, username, password, sitename, website_url) -> tuple:
+        query = f"""DELETE FROM {self.__password_table} 
+            WHERE USERNAME=:username 
+            AND PASSWORD=:password
+            AND SITENAME=:sitename
+            AND WEBSITE_URL=:website_url;"""
+        params = {
+            "username":username,
+            "password":password,
+            "sitename":sitename,
+            "website_url":website_url
+        }
+        return (query, params)
+
     def user_auth(self, username) -> tuple: 
         query = f"""SELECT PASSWORD FROM {self.__account_table} WHERE USERNAME=:username;"""
         params = {"username":username}
@@ -93,6 +107,10 @@ class QueryExecutor:
         self.conn.commit()
 
     def insert_data(self, query, params):
+        self.cursor.execute(query, params)
+        self.conn.commit()
+
+    def delete_data(self, query, params):
         self.cursor.execute(query, params)
         self.conn.commit()
 
