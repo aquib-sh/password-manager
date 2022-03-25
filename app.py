@@ -76,7 +76,6 @@ class PassVault:
         pass
 
     def go_back_to_homescreen(self):
-        self.layout_manager.delete_card()
         self.edit_password_window.close()
 
     def signup(self):
@@ -89,7 +88,7 @@ class PassVault:
         pass
 
     def delete_values(self):
-        pass
+        self.layout_manager.delete_selected()
 
 if __name__ == "__main__":
     passvault = PassVault()
