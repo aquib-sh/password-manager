@@ -95,22 +95,24 @@ class QueryGenerator:
         params = {"username":username}
         return (query, params)
 
+    def user_email(self, username) -> tuple:
+        query = f"""SELECT EMAIL from {self.__account_info_table} WHERE USERNAME=:username;"""
+        params = {"username":username}
+        return (query, params)
+
 
 class QueryExecutor:
     def __init__(self, sqlite_file_path:str, log=1):
         self.conn = sqlite3.connect(sqlite_file_path)
         self.cursor = self.conn.cursor()
-        if log: print(f"[+] Connect to database at {sqlite_file_path}")
+        self.log = log
+        if self.log: print(f"[+] Connect to database at {sqlite_file_path}")
 
     def create_table(self, query):
         self.cursor.execute(query)
         self.conn.commit()
 
-    def insert_data(self, query, params):
-        self.cursor.execute(query, params)
-        self.conn.commit()
-
-    def delete_data(self, query, params):
+    def modify_data(self, query, params):
         self.cursor.execute(query, params)
         self.conn.commit()
 
@@ -118,5 +120,14 @@ class QueryExecutor:
         self.cursor.execute(query, params)
         fetched_password = self.cursor.fetchone()
         if (fetched_password[0] == password):
+            if self.log: print(f"[+] Sucessfully authenticated {params['username']}")
             return True
         return False
+
+    def get_user_email(self, query, params) -> str:
+        self.cursor.execute(query, params)
+        fetched_email = self.cursor.fetchone()
+        if fetched_email == None:
+            if self.log: print(f"[!] User {params['username']} not found")
+            return ""
+        return fetched_email[0]
