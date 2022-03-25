@@ -120,6 +120,22 @@ class PasswordCard(DataCard):
         widget.setLayout(layout)
 
 class CardWrapper:
+    """CardWrapper is used to wrap cards along with a checkbutton.
+
+    These setting of keeping checkbuttons along with a card helps while deleting multiple cards
+
+    Here is a layout of CardWrapper
+
+      ------- LAYOUT DESCRIPTION OF A CARD WRAPPER -------
+      |                                                  |
+      |   ---------DATA CARD-----------     Checkbox     |
+      |   |                           |      -----       |
+      |   |                           |      ||_||       |
+      |   |                           |      -----       |
+      |   |                           |                  |
+      |   -----------------------------                  |
+      ----------------------------------------------------
+    """
     def __init__(self, layout: QVBoxLayout, card: DataCard):
         self.__parent = layout
         self.__card = card
