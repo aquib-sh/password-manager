@@ -14,6 +14,7 @@ class LayoutManager:
         self.app.home_window.set_layout(self.cards_layout)
 
     def create_card(self) -> tuple:
+        """Creates a card inside a wrapper and puts it inside the layout """
         site = self.app.edit_password_window.get_site_value()
         website = self.app.edit_password_window.get_url_value()
         username = self.app.edit_password_window.get_username_value()
