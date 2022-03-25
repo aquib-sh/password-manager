@@ -1,3 +1,4 @@
+from inspect import Parameter
 import os
 import datetime
 import sqlite3
@@ -58,22 +59,27 @@ class QueryGenerator:
             """
     def add_new_user(self, username, password) -> tuple:
         query = f"""INSERT INTO {self.__account_table} (USERNAME, PASSWORD) VALUES (?, ?)"""
-        parameters = (username, password)
-        return (query, parameters)
+        params = (username, password)
+        return (query, params)
 
     def add_user_info(self, username, email) -> tuple:
         query = f"""INSERT INTO {self.__account_info_table} (USERNAME, EMAIL) VALUES (?, ?)"""
-        parameters = (username, email)
-        return (query, parameters)
+        params = (username, email)
+        return (query, params)
 
     def add_password(self, username, password, sitename="", website_url="") -> tuple:
         current_datetime = str(datetime.datetime.now())
         query = f"""INSERT INTO {self.__password_table} 
             (USERNAME, SITENAME, WEBSITE_URL, PASSWORD, CREATION_TIME, LAST_MODIFY_TIME) 
             VALUES (?, ?, ?, ?, ?, ?);"""
-        parameters = (username, sitename, website_url, 
+        params = (username, sitename, website_url, 
             password, current_datetime, current_datetime)
-        return (query, parameters)
+        return (query, params)
+
+    def user_auth(self, username) -> tuple: 
+        query = f"""SELECT PASSWORD FROM {self.__account_table} WHERE USERNAME=:username;"""
+        params = {"username":username}
+        return (query, params)
 
 
 class QueryExecutor:
@@ -86,6 +92,13 @@ class QueryExecutor:
         self.cursor.execute(query)
         self.conn.commit()
 
-    def insert_data(self, query, parameters):
-        self.cursor.execute(query, parameters)
+    def insert_data(self, query, params):
+        self.cursor.execute(query, params)
         self.conn.commit()
+
+    def authenticate_user(self, query, params, password) -> bool:
+        self.cursor.execute(query, params)
+        fetched_password = self.cursor.fetchone()
+        if (fetched_password[0] == password):
+            return True
+        return False
