@@ -34,7 +34,7 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
@@ -82,7 +82,7 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="acceptDrops">
@@ -139,7 +139,7 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="acceptDrops">
@@ -209,7 +209,7 @@
   </widget>
   <widget class="QLineEdit" name="otp_input">
    <property name="enabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -222,7 +222,7 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="acceptDrops">
@@ -232,7 +232,7 @@
     <string/>
    </property>
    <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+    <enum>QLineEdit::Normal</enum>
    </property>
    <property name="clearButtonEnabled">
     <bool>false</bool>
@@ -267,7 +267,7 @@
   <widget class="QPushButton" name="sign_up_btn">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>210</x>
      <y>480</y>
      <width>111</width>
      <height>41</height>
@@ -276,26 +276,27 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>13</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>Sign Up</string>
+    <string>Register</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="message_lbl">
    <property name="geometry">
     <rect>
      <x>100</x>
      <y>540</y>
      <width>401</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>9</pointsize>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -314,30 +315,11 @@
    <property name="font">
     <font>
      <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
     <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="get_otp_btn">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>390</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Monospace</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Get OTP</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -351,8 +333,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Monospace</family>
-     <pointsize>10</pointsize>
+     <pointsize>13</pointsize>
     </font>
    </property>
    <property name="text">
@@ -360,6 +341,14 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>username_input</tabstop>
+  <tabstop>email_input</tabstop>
+  <tabstop>password_input</tabstop>
+  <tabstop>confirm_password_input</tabstop>
+  <tabstop>otp_input</tabstop>
+  <tabstop>sign_up_btn</tabstop>
+ </tabstops>
  <resources>
   <include location="../login.qrc"/>
  </resources>
