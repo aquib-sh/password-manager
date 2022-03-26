@@ -19,7 +19,11 @@ APP_EMAIL = "passvault.manager@gmail.com"
 OTP_MSG = "Hello {user} your OTP for Pass Vault is {otp}"
 
 # ====================== DISPLAY MSGS ========================
+# => xxxxxxx REGISTERATION PHASE xxxxxxx
 ENTER_OTP_MSG = "OTP has been sent to {email},\nPlease enter OTP here."
 INCORRECT_OTP_MSG = "Incorrect OTP!"
 REG_SUCESS_MSG = "Sucessfully Registered on PassVault!,\nPlease close this window and proceeed with login"
 PASSWORD_MISMATCH_MSG = "Passwords do not match, Please check the passwords and try again."
+# => xxxxxxx LOGIN PHASE xxxxxxx
+INVALID_USER_MSG = "User {user} does not exist!"
+INCORRECT_PASSWORD_MSG = "Given password for {user} is incorrect!"
