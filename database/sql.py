@@ -116,13 +116,26 @@ class QueryExecutor:
         self.cursor.execute(query, params)
         self.conn.commit()
 
-    def authenticate_user(self, query, params, password) -> bool:
+    def authenticate_user(self, query, params, password) -> int:
+        """ Checks if the user and it's credentials are correct. 
+
+        Returns
+        -------
+        :int
+            integer number corresponding to the status of auth
+            1 => credentials are valid
+            2 => user does not exist
+            3 => password is incorrect
+        """
         self.cursor.execute(query, params)
         fetched_password = self.cursor.fetchone()
+        if fetched_password == None:
+            return 2
+
         if (fetched_password[0] == password):
             if self.log: print(f"[+] Sucessfully authenticated {params['username']}")
-            return True
-        return False
+            return 1 
+        return 3 
 
     def get_user_email(self, query, params) -> str:
         self.cursor.execute(query, params)
