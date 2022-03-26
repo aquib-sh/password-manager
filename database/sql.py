@@ -1,7 +1,7 @@
-from inspect import Parameter
-import os
 import datetime
+import os
 import sqlite3
+from inspect import Parameter
 
 
 class QueryGenerator:
@@ -93,20 +93,18 @@ class QueryGenerator:
         return (query, params)
 
     def delete_password(
-        self, account, username, password, sitename, website_url
+        self, account, username, password, sitename
     ) -> tuple:
         query = f"""DELETE FROM {self.__password_table} 
             WHERE ACCOUNT=:account
             AND USERNAME=:username 
             AND PASSWORD=:password
-            AND SITENAME=:sitename
-            AND WEBSITE_URL=:website_url;"""
+            AND SITENAME=:sitename;"""
         params = {
-            "acccount": account,
+            "account": account,
             "username": username,
             "password": password,
-            "sitename": sitename,
-            "website_url": website_url,
+            "sitename": sitename
         }
         return (query, params)
 
@@ -120,6 +118,11 @@ class QueryGenerator:
     def user_email(self, username) -> tuple:
         query = f"""SELECT EMAIL from {self.__account_info_table} WHERE USERNAME=:username;"""
         params = {"username": username}
+        return (query, params)
+
+    def get_account_passwords(self, account) -> tuple:
+        query = f"""SELECT * from {self.__password_table} WHERE ACCOUNT=:account;"""
+        params = {"account": account}
         return (query, params)
 
 
@@ -138,6 +141,11 @@ class QueryExecutor:
     def modify_data(self, query, params):
         self.cursor.execute(query, params)
         self.conn.commit()
+
+    def account_passwords(self, query, params) -> list:
+        self.cursor.execute(query, params)
+        data = self.cursor.fetchall()
+        return data
 
     def authenticate_user(self, query, params, password) -> int:
         """Checks if the user and it's credentials are correct.
