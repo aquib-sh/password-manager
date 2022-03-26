@@ -1,11 +1,12 @@
 from PyQt5.QtWidgets import QMainWindow
 from pass_vault_ui.layouts import home_ui
 
+
 class HomeWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.home_ui = home_ui.Ui_MainWindow()
-        self.home_ui.setupUi(self) 
+        self.home_ui.setupUi(self)
 
     def connect_logout_btn(self, event):
         self.home_ui.log_out_btn.clicked.connect(event)

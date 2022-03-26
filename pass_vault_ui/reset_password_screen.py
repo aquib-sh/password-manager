@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 from pass_vault_ui.layouts import reset_password_ui
 
+
 class ResetPasswordWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -12,4 +13,3 @@ class ResetPasswordWindow(QMainWindow):
 
     def connect_otp_btn(self, event):
         self.__reset_password_screen.get_otp_btn.clicked.connect(event)
-

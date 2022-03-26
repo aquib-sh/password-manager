@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pass_vault_ui.layouts import login_rc
 
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -19,7 +20,11 @@ class Ui_Form(object):
         font.setPointSize(10)
         Form.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("res/design/../logo/Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("res/design/../logo/Logo.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         Form.setWindowIcon(icon)
         self.username_input = QtWidgets.QLineEdit(Form)
         self.username_input.setGeometry(QtCore.QRect(260, 270, 180, 30))
@@ -37,7 +42,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label.setFont(font)
         self.label.setScaledContents(False)
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label.setObjectName("label")
         self.password_input = QtWidgets.QLineEdit(Form)
         self.password_input.setEnabled(True)
@@ -59,7 +66,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label_2.setFont(font)
         self.label_2.setScaledContents(False)
-        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_2.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_2.setObjectName("label_2")
         self.confirm_password_input = QtWidgets.QLineEdit(Form)
         self.confirm_password_input.setEnabled(True)
@@ -81,7 +90,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label_3.setFont(font)
         self.label_3.setScaledContents(False)
-        self.label_3.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_3.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_3.setObjectName("label_3")
         self.label_5 = QtWidgets.QLabel(Form)
         self.label_5.setGeometry(QtCore.QRect(80, 310, 107, 30))
@@ -91,7 +102,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label_5.setFont(font)
         self.label_5.setScaledContents(False)
-        self.label_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_5.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_5.setObjectName("label_5")
         self.otp_input = QtWidgets.QLineEdit(Form)
         self.otp_input.setEnabled(False)
@@ -113,7 +126,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label_6.setFont(font)
         self.label_6.setScaledContents(False)
-        self.label_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_6.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_6.setObjectName("label_6")
         self.sign_up_btn = QtWidgets.QPushButton(Form)
         self.sign_up_btn.setGeometry(QtCore.QRect(210, 480, 111, 41))
@@ -163,4 +178,9 @@ class Ui_Form(object):
         self.label_5.setText(_translate("Form", "Email"))
         self.label_6.setText(_translate("Form", "OTP"))
         self.sign_up_btn.setText(_translate("Form", "Register"))
-        self.label_4.setText(_translate("Form", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen.png\"/></p></body></html>"))
+        self.label_4.setText(
+            _translate(
+                "Form",
+                '<html><head/><body><p><img src=":/newPrefix/logo/login_screen.png"/></p></body></html>',
+            )
+        )

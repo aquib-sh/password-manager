@@ -16,7 +16,13 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(628, 420)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("res/design/../../../../../.designer/backup/Documents/projects/password-manager/res/logo/Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap(
+                "res/design/../../../../../.designer/backup/Documents/projects/password-manager/res/logo/Logo.png"
+            ),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         Form.setWindowIcon(icon)
         self.line = QtWidgets.QFrame(Form)
         self.line.setGeometry(QtCore.QRect(210, 10, 20, 471))
@@ -134,7 +140,11 @@ class Ui_Form(object):
         self.clipboard_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.clipboard_btn.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("res/design/../logo/clipboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap("res/design/../logo/clipboard.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.clipboard_btn.setIcon(icon1)
         self.clipboard_btn.setDefault(False)
         self.clipboard_btn.setFlat(False)
@@ -145,7 +155,9 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         self.label_10.setFont(font)
         self.label_10.setText("")
-        self.label_10.setPixmap(QtGui.QPixmap("res/design/../logo/login_screen_small.png"))
+        self.label_10.setPixmap(
+            QtGui.QPixmap("res/design/../logo/login_screen_small.png")
+        )
         self.label_10.setObjectName("label_10")
 
         self.retranslateUi(Form)
@@ -162,14 +174,25 @@ class Ui_Form(object):
         self.gen_password_btn.setText(_translate("Form", "Generate"))
         self.back_btn.setText(_translate("Form", "Back"))
         self.save_btn.setText(_translate("Form", "Save"))
-        self.label_6.setText(_translate("Form", "<html><head/><body><p><span style=\" font-weight:600;\">Created</span></p></body></html>"))
+        self.label_6.setText(
+            _translate(
+                "Form",
+                '<html><head/><body><p><span style=" font-weight:600;">Created</span></p></body></html>',
+            )
+        )
         self.creation_time_lbl.setText(_translate("Form", "Date, Time"))
         self.last_updated_lbl.setText(_translate("Form", "Date, Time"))
-        self.label_9.setText(_translate("Form", "<html><head/><body><p><span style=\" font-weight:600;\">Last Updated</span></p></body></html>"))
+        self.label_9.setText(
+            _translate(
+                "Form",
+                '<html><head/><body><p><span style=" font-weight:600;">Last Updated</span></p></body></html>',
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

@@ -3,6 +3,7 @@ from pass_vault_ui.card import PasswordCard
 from pass_vault_ui.card import CardWrapper
 from PyQt5.QtWidgets import QVBoxLayout
 
+
 class HomeLayoutManager:
     def __init__(self, app):
         self.app = app
@@ -29,7 +30,7 @@ class HomeLayoutManager:
 
         self.pcards.append(wrapper)
         self.update_home_layout()
-        return (site,  website, username, password)
+        return (site, website, username, password)
 
     def __delete_card(self, card_wrapper):
         """Deletes an individual card."""
@@ -40,9 +41,9 @@ class HomeLayoutManager:
         """Iterates through all the card wrappers,
         delete the one's that have checked in checkbox.
         """
-        temp = self.pcards.copy()   #create a copy to avoid pointer bugs
+        temp = self.pcards.copy()  # create a copy to avoid pointer bugs
         for i in range(0, len(temp)):
-            if (temp[i].is_checked()):
+            if temp[i].is_checked():
                 indx_of_card = self.pcards.index(temp[i])
                 self.__delete_card(self.pcards[indx_of_card])
                 self.index -= 1

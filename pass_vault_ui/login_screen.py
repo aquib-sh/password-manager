@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 from pass_vault_ui.layouts import login_ui
 
+
 class LoginWindow(QMainWindow):
     def __init__(self):
         super().__init__()

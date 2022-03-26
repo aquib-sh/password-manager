@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pass_vault_ui.layouts import login_rc
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -35,7 +36,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        #self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        # self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.scrollArea.setGeometry(QtCore.QRect(300, 10, 481, 501))
         font = QtGui.QFont()
         font.setFamily("Monospace")
@@ -195,15 +196,23 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "PassVault Home"))
         self.password_btn.setText(_translate("MainWindow", "Passwords"))
-        self.id_btn.setText(_translate("MainWindow", "ID\'s"))
+        self.id_btn.setText(_translate("MainWindow", "ID's"))
         self.log_out_btn.setText(_translate("MainWindow", "Log Out"))
         self.username_lbl.setText(_translate("MainWindow", "Welcome, User!"))
         self.pay_info_btn.setText(_translate("MainWindow", "Payment Info"))
         self.add_btn.setText(_translate("MainWindow", "Add"))
         self.delete_btn.setText(_translate("MainWindow", "Delete"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen_medium.png\"/></p></body></html>"))
+        self.label_3.setText(
+            _translate(
+                "MainWindow",
+                '<html><head/><body><p><img src=":/newPrefix/logo/login_screen_medium.png"/></p></body></html>',
+            )
+        )
+
+
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

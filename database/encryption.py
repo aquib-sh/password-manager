@@ -1,10 +1,9 @@
 from cryptography.fernet import Fernet
 
 
-class CryptEngine():
-
+class CryptEngine:
     def generate_key(self):
-        key  = Fernet.generate_key()
+        key = Fernet.generate_key()
         return key
 
     def encrypt_message(self, message, key):

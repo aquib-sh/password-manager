@@ -1,8 +1,9 @@
 from googleapiclient.discovery import build
 
+
 class GoogleServices:
     """Handles Google API events and methods.
-    
+
     Parameters
     ----------
     token
@@ -11,6 +12,7 @@ class GoogleServices:
     scope: list
         Scope of the current token.
     """
+
     def __init__(self, token, scope: list):
         self.token = token
         self.scope = scope
@@ -18,7 +20,7 @@ class GoogleServices:
 
     def start_service(self, service: str, version: str):
         """Starts Google API Service.
-        
+
         Parameters
         ----------
         service: str

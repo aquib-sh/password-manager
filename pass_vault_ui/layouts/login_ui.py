@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pass_vault_ui.layouts import login_rc
 
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -20,7 +21,11 @@ class Ui_Form(object):
         font.setBold(False)
         Form.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("res/design/../logo/Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("res/design/../logo/Logo.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         Form.setWindowIcon(icon)
         Form.setAutoFillBackground(False)
         self.username_input = QtWidgets.QLineEdit(Form)
@@ -52,7 +57,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label.setFont(font)
         self.label.setScaledContents(False)
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(150, 340, 107, 30))
@@ -62,7 +69,9 @@ class Ui_Form(object):
         font.setBold(False)
         self.label_2.setFont(font)
         self.label_2.setScaledContents(False)
-        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_2.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_2.setObjectName("label_2")
         self.login_btn = QtWidgets.QPushButton(Form)
         self.login_btn.setGeometry(QtCore.QRect(180, 400, 111, 41))
@@ -123,4 +132,9 @@ class Ui_Form(object):
         self.login_btn.setText(_translate("Form", "Login"))
         self.register_btn.setText(_translate("Form", "Register"))
         self.reset_btn.setText(_translate("Form", "Reset"))
-        self.label_3.setText(_translate("Form", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen.png\"/></p></body></html>"))
+        self.label_3.setText(
+            _translate(
+                "Form",
+                '<html><head/><body><p><img src=":/newPrefix/logo/login_screen.png"/></p></body></html>',
+            )
+        )
