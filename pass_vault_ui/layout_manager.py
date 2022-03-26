@@ -3,7 +3,7 @@ from pass_vault_ui.card import PasswordCard
 from pass_vault_ui.card import CardWrapper
 from PyQt5.QtWidgets import QVBoxLayout
 
-class LayoutManager:
+class HomeLayoutManager:
     def __init__(self, app):
         self.app = app
         self.cards_layout = QVBoxLayout()
