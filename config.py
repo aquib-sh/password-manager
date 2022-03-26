@@ -29,3 +29,5 @@ PASSWORD_MISMATCH_MSG = (
 # => xxxxxxx LOGIN PHASE xxxxxxx
 INVALID_USER_MSG = "User {user} does not exist!"
 INCORRECT_PASSWORD_MSG = "Given password for {user} is incorrect!"
+# => xxxxxxx HOME SCREEN xxxxxxx
+GREETING_MSG = "Welcome, {user}!"
