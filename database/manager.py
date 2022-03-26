@@ -1,4 +1,4 @@
-from database.sql import QueryGenerator, QueryExecutor
+from database.sql import QueryExecutor, QueryGenerator
 
 
 class DBManager:
