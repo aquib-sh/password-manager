@@ -33,10 +33,10 @@ class HomeLayoutManager:
         self.update_home_layout()
         return (site, website, username, password)
 
-    def __delete_card(self, card_wrapper):
+    def __delete_card(self, index:int):
         """Deletes an individual card."""
-        card_wrapper.detach_from_layout()
-        del card_wrapper
+        self.pcards[index].detach_from_layout()
+        del self.pcards[index]
 
     def delete_selected(self):
         """Iterates through all the card wrappers,
@@ -46,12 +46,15 @@ class HomeLayoutManager:
         for i in range(0, len(temp)):
             if temp[i].is_checked():
                 indx_of_card = self.pcards.index(temp[i])
-                self.__delete_card(self.pcards[indx_of_card])
+                self.__delete_card(indx_of_card)
                 self.index -= 1
                 self.update_home_layout()
 
     def reset(self):
         """Deletes all the cards and sets everything to the initial stage"""
-        for card in self.pcards:
-            self.__delete_card(card)
+        temp = self.pcards.copy()  # create a copy to avoid pointer bugs
+        for i in range(0, len(temp)):
+            indx_of_card = self.pcards.index(temp[i])
+            self.__delete_card(indx_of_card)
+            self.update_home_layout()
         self.index = -1
