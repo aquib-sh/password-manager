@@ -26,14 +26,20 @@ class DBManager:
         )
         self.query_exec.modify_data(query, param)
 
-    def delete_password(self, user, passwd, sitename, website):
-        query, param = self.query_gen.delete_password(user, passwd, sitename, website)
+    def delete_password(self, account, user, passwd, site):
+        query, param = self.query_gen.delete_password(account, user, passwd, site)
         self.query_exec.modify_data(query, param)
 
     def get_user_email(self, user):
         query, param = self.query_gen.user_email(user)
         email = self.query_exec.get_user_email(query, param)
         return email
+
+    def get_all_passwords_for_a_user(self, user) -> list:
+        """Gets all the passwords created by a single account."""
+        query, params = self.query_gen.get_account_passwords(user)
+        data = self.query_exec.account_passwords(query, params)
+        return data
 
     def is_valid_user(self, user, password) -> int:
         """Checks if the user and it's credentials are correct.
