@@ -1,15 +1,17 @@
 import sys
-import config
+
 from PyQt5.QtWidgets import QApplication
-from pass_vault_ui.home_screen import HomeWindow
-from pass_vault_ui.login_screen import LoginWindow
-from pass_vault_ui.signup_screen import SignUpWindow
+
+import config
+from database.manager import DBManager
 from pass_vault_ui.edit_password_screen import EditPasswordWindow
-from pass_vault_ui.reset_password_screen import ResetPasswordWindow
+from pass_vault_ui.home_screen import HomeWindow
 from pass_vault_ui.layout_manager import HomeLayoutManager
+from pass_vault_ui.login_screen import LoginWindow
+from pass_vault_ui.reset_password_screen import ResetPasswordWindow
+from pass_vault_ui.signup_screen import SignUpWindow
 from services.google.email import Gmail
 from services.google.token import TokenRetriever
-from database.manager import DBManager
 from utils import OTPGenerator
 
 
@@ -49,7 +51,7 @@ class PassVault:
 
         self.home_window.connect_add_btn(self.show_add_screen)
         self.home_window.connect_delete_btn(self.delete_values)
-        self.home_window.connect_logout_btn(self.log_out)
+        self.home_window.connect_logout_btn(self.logout)
 
         self.edit_password_window.connect_back_btn(self.go_back_to_homescreen)
         self.edit_password_window.connect_clipboard_btn(self.copy_to_clipboard)
@@ -76,12 +78,22 @@ class PassVault:
         # 3 => password is incorrect
         validity_status = self.valid_credentials(username, password)
         if validity_status == 1:
+            self.current_user = username
+            self.login_window.reset()
             self.login_window.close()
             self.home_window.show()
+            # set greeting msg
+            self.home_window.set_welcome_text(config.GREETING_MSG.format(
+                user=self.current_user)
+            )
+            # get and display the passwords stored by user
+            data = self.db_manager.get_all_passwords_for_a_user(self.current_user)
+            self.layout_manager.create_cards_from_list(data)
+
         elif validity_status == 2:
-            self.login_window.display_message(config.INVALID_USER_MSG)
+            self.login_window.display_message(config.INVALID_USER_MSG.format(user=username))
         else:
-            self.login_window.display_message(config.INCORRECT_PASSWORD_MSG)
+            self.login_window.display_message(config.INCORRECT_PASSWORD_MSG.format(user=username))
 
     def show_add_screen(self):
         self.edit_password_window.show()
@@ -90,9 +102,19 @@ class PassVault:
         self.reset_password_window.show()
 
     def save_value(self):
-        site, website, user, password = self.layout_manager.create_card()
-        self.db_manager.add_password()
-        print(f"[+] New Card created with\nUser: {user}\nPassword: {password}")
+        site = self.edit_password_window.get_site_value()
+        website = self.edit_password_window.get_url_value()
+        username = self.edit_password_window.get_username_value()
+        password = self.edit_password_window.get_password_value()
+ 
+        self.layout_manager.create_card(username, password, site)
+        self.db_manager.add_password(
+            account=self.current_user, 
+            user=username, 
+            passwd=password, 
+            sitename=site, 
+            website = website
+        )
         self.edit_password_window.clear_inputs()
 
     def generate_password(self):
@@ -147,11 +169,20 @@ class PassVault:
         )
         self.gmail.send_message(msg)
 
-    def log_out(self):
-        pass
+    def logout(self):
+        self.layout_manager.reset()
+        self.home_window.close()
+        self.login_window.show() 
 
     def delete_values(self):
-        self.layout_manager.delete_selected()
+        deleted = self.layout_manager.delete_selected()
+        # Delete from the database
+        for row in deleted:
+            username = row[0]
+            password = row[1]
+            site = row[2]
+            self.db_manager.delete_password(self.current_user, username, password, site)
+            print(f"[+] Deleted card with User: {username} | Password: {password}")
 
 
 if __name__ == "__main__":
