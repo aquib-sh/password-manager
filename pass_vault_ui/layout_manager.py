@@ -1,7 +1,8 @@
 from curses import wrapper
-from pass_vault_ui.card import PasswordCard
-from pass_vault_ui.card import CardWrapper
+
 from PyQt5.QtWidgets import QVBoxLayout
+
+from pass_vault_ui.card import CardWrapper, PasswordCard
 
 
 class HomeLayoutManager:
@@ -48,3 +49,9 @@ class HomeLayoutManager:
                 self.__delete_card(self.pcards[indx_of_card])
                 self.index -= 1
                 self.update_home_layout()
+
+    def reset(self):
+        """Deletes all the cards and sets everything to the initial stage"""
+        for card in self.pcards:
+            self.__delete_card(card)
+        self.index = -1
