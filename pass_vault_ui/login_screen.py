@@ -23,3 +23,6 @@ class LoginWindow(QMainWindow):
     def get_password(self):
         password = self.__login_ui.password_input.text()
         return password
+
+    def display_message(self, text):
+        self.__login_ui.debug_lbl.setText(text)

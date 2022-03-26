@@ -11,7 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pass_vault_ui.layouts import login_rc
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -19,7 +18,6 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         Form.setFont(font)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("res/design/../logo/Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -31,7 +29,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         self.username_input.setFont(font)
         self.username_input.setText("")
         self.username_input.setObjectName("username_input")
@@ -42,7 +39,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         self.password_input.setFont(font)
         self.password_input.setText("")
         self.password_input.setEchoMode(QtWidgets.QLineEdit.Password)
@@ -54,7 +50,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(14)
         font.setBold(False)
-        font.setWeight(50)
         self.label.setFont(font)
         self.label.setScaledContents(False)
         self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -65,7 +60,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(14)
         font.setBold(False)
-        font.setWeight(50)
         self.label_2.setFont(font)
         self.label_2.setScaledContents(False)
         self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -76,7 +70,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         self.login_btn.setFont(font)
         self.login_btn.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.login_btn.setAutoDefault(False)
@@ -89,7 +82,6 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         self.register_btn.setFont(font)
         self.register_btn.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.register_btn.setObjectName("register_btn")
@@ -99,13 +91,26 @@ class Ui_Form(object):
         font.setFamily("Monospace")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(50)
         self.reset_btn.setFont(font)
         self.reset_btn.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.reset_btn.setObjectName("reset_btn")
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(80, 60, 501, 191))
+        font = QtGui.QFont()
+        font.setFamily("Monospace")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
+        self.debug_lbl = QtWidgets.QLabel(Form)
+        self.debug_lbl.setGeometry(QtCore.QRect(100, 460, 421, 51))
+        font = QtGui.QFont()
+        font.setFamily("Monospace")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.debug_lbl.setFont(font)
+        self.debug_lbl.setText("")
+        self.debug_lbl.setObjectName("debug_lbl")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -119,13 +124,3 @@ class Ui_Form(object):
         self.register_btn.setText(_translate("Form", "Register"))
         self.reset_btn.setText(_translate("Form", "Reset"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p><img src=\":/newPrefix/logo/login_screen.png\"/></p></body></html>"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
