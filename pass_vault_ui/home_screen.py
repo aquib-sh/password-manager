@@ -20,3 +20,6 @@ class HomeWindow(QMainWindow):
 
     def set_layout(self, layout):
         self.home_ui.scrollAreaWidgetContents.setLayout(layout)
+
+    def set_welcome_text(self, text):
+        self.home_ui.username_lbl.setText(text)
