@@ -12,6 +12,7 @@ from services.google.token import TokenRetriever
 from database.manager import DBManager
 from utils import OTPGenerator
 
+
 class PassVault:
     def __init__(self):
         # Intialize UI components
@@ -25,16 +26,17 @@ class PassVault:
         self.layout_manager = HomeLayoutManager(self)
         self.otp_gen = OTPGenerator()
 
-        # Initialize Gmail service for emailing OTP 
+        # database manager
+        self.db_manager = DBManager(config.DB_PATH)
+        # user
+        self.current_user = None
+
+        # Initialize Gmail service for emailing OTP
         self.retr = TokenRetriever()
         gtoken = self.retr.retrieve_google_api_token(
-                    token_path=config.GOOGLE_API_TOKEN_PATH, 
-                    scopes=config.GOOGLE_API_SCOPE
-                )
-        self.gmail = Gmail(
-                token=gtoken, 
-                scope=config.GOOGLE_API_SCOPE
-            )
+            token_path=config.GOOGLE_API_TOKEN_PATH, scopes=config.GOOGLE_API_SCOPE
+        )
+        self.gmail = Gmail(token=gtoken, scope=config.GOOGLE_API_SCOPE)
         self.gmail.start_service()
 
     def __setup_connections(self):
@@ -53,8 +55,6 @@ class PassVault:
         self.edit_password_window.connect_clipboard_btn(self.copy_to_clipboard)
         self.edit_password_window.connect_generate_btn(self.generate_password)
         self.edit_password_window.connect_save_btn(self.save_value)
-
-        #self.reset_password_window.connect_otp_btn(self.__send_otp)
         self.reset_password_window.connect_reset_btn(self.reset_value)
 
     def reset_value(self):
@@ -64,17 +64,24 @@ class PassVault:
         self.signup_window.show()
 
     def valid_credentials(self, username, password) -> bool:
-        """Checks whether the username and password exists in database."""
-        return True
+        """Checks whether the user exists in database."""
+        return self.db_manager.is_valid_user(username, password)
 
     def login(self):
         username = self.login_window.get_username()
         password = self.login_window.get_password()
-        creds_are_valid = self.valid_credentials(username, password)
-
-        if creds_are_valid:
+        # integer number corresponding to the status of auth
+        # 1 => credentials are valid
+        # 2 => user does not exist
+        # 3 => password is incorrect
+        validity_status = self.valid_credentials(username, password)
+        if validity_status == 1:
             self.login_window.close()
             self.home_window.show()
+        elif validity_status == 2:
+            self.login_window.display_message(config.INVALID_USER_MSG)
+        else:
+            self.login_window.display_message(config.INCORRECT_PASSWORD_MSG)
 
     def show_add_screen(self):
         self.edit_password_window.show()
@@ -84,6 +91,7 @@ class PassVault:
 
     def save_value(self):
         site, website, user, password = self.layout_manager.create_card()
+        self.db_manager.add_password()
         print(f"[+] New Card created with\nUser: {user}\nPassword: {password}")
         self.edit_password_window.clear_inputs()
 
@@ -105,7 +113,7 @@ class PassVault:
         password = self.signup_window.get_password_value()
         confirm_password = self.signup_window.get_confirm_password_value()
 
-        if (confirm_password != password):
+        if confirm_password != password:
             self.signup_window.display_message(config.PASSWORD_MISMATCH_MSG)
         else:
             # If register btn is clicked first time then send OTP
@@ -114,29 +122,29 @@ class PassVault:
                 otp = self.otp_gen.generate_alpha_numeric_otp()
                 self.signup_window.set_otp(otp)
                 self.__send_otp(email, user, otp)
-                self.signup_window.display_message(config.ENTER_OTP_MSG.format(email=email))
+                self.signup_window.display_message(
+                    config.ENTER_OTP_MSG.format(email=email)
+                )
                 self.signup_window.activate_otp_input()
             else:
-                if (self.__verify_otp(self.signup_window.get_dispatched_otp())):
+                if self.__verify_otp(self.signup_window.get_dispatched_otp()):
+                    self.db_manager.add_new_user(user, password)
                     self.signup_window.display_message(config.REG_SUCESS_MSG)
+                    self.signup_window.reset()
                 else:
                     self.signup_window.display_message(config.INCORRECT_OTP_MSG)
 
-
     def __verify_otp(self, otp) -> bool:
         entered_otp = self.signup_window.get_otp_value()
-        return (entered_otp == otp)
+        return entered_otp == otp
 
     def __send_otp(self, email, user, otp):
         msg = self.gmail.create_message(
-                sender=config.APP_EMAIL,
-                to=email,
-                subject="PassVault Verification",
-                message_text=config.OTP_MSG.format(
-                    user=user, 
-                    otp=otp
-                    )
-                )
+            sender=config.APP_EMAIL,
+            to=email,
+            subject="PassVault Verification",
+            message_text=config.OTP_MSG.format(user=user, otp=otp),
+        )
         self.gmail.send_message(msg)
 
     def log_out(self):
@@ -145,9 +153,8 @@ class PassVault:
     def delete_values(self):
         self.layout_manager.delete_selected()
 
+
 if __name__ == "__main__":
     passvault = PassVault()
     passvault.login_window.show()
     sys.exit(passvault.app.exec_())
-        
-
