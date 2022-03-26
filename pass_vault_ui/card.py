@@ -1,13 +1,6 @@
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import (
-    QCheckBox,
-    QVBoxLayout,
-    QHBoxLayout,
-    QPushButton,
-    QWidget,
-    QLabel,
-)
+from PyQt5.QtWidgets import (QCheckBox, QHBoxLayout, QLabel, QPushButton,
+                             QVBoxLayout, QWidget)
 
 
 class DataCard:
@@ -115,6 +108,7 @@ class PasswordCard(DataCard):
         value.setFixedSize(QtCore.QSize(self.ROW_VALUE_SIZE[0], self.ROW_VALUE_SIZE[1]))
         layout.addWidget(key)
         layout.addWidget(value)
+
         widget.setLayout(layout)
 
 
