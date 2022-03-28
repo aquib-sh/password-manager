@@ -1,3 +1,4 @@
+from database.encryption import CryptEngine
 from database.sql import QueryExecutor, QueryGenerator
 
 
@@ -5,6 +6,8 @@ class DBManager:
     def __init__(self, db_path):
         self.query_exec = QueryExecutor(db_path)
         self.query_gen = QueryGenerator()
+        key = "S2M-`:Y(N8Q8a#cf@FbbxbQiByu#`Q:/'W=2s4It_!N|-2|oWX@WL(G6-hTMIwz"
+        self.__crypter = CryptEngine(key)
         self.__setup()
 
     def __setup(self):
@@ -21,6 +24,7 @@ class DBManager:
         self.query_exec.modify_data(query, param)
 
     def add_password(self, account, user, passwd, sitename="", website=""):
+        passwd = self.__crypter.encrypt(passwd)
         query, param = self.query_gen.add_password(
             account, user, passwd, sitename, website
         )
@@ -39,6 +43,10 @@ class DBManager:
         """Gets all the passwords created by a single account."""
         query, params = self.query_gen.get_account_passwords(user)
         data = self.query_exec.account_passwords(query, params)
+        if len(data) > 0:
+            for i in range(-1, len(data)):
+                data[i] = list(data[i])
+                data[i][4] = self.__crypter.decrypt(data[i][4]) 
         return data
 
     def is_valid_user(self, user, password) -> int:
