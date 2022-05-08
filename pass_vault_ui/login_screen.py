@@ -24,12 +24,10 @@ class LoginWindow(QMainWindow):
         self.__login_ui.register_btn.clicked.connect(event)
 
     def get_username(self):
-        username = self.__login_ui.username_input.text()
-        return username
+        return self.__login_ui.username_input.text()
 
     def get_password(self):
-        password = self.__login_ui.password_input.text()
-        return password
+        return self.__login_ui.password_input.text()
 
     def set_username(self, text):
         self.__login_ui.username_input.setText("")

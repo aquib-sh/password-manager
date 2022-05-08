@@ -1,6 +1,12 @@
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import (QCheckBox, QHBoxLayout, QLabel, QPushButton,
-                             QVBoxLayout, QWidget)
+from PyQt5.QtWidgets import (
+    QCheckBox,
+    QHBoxLayout,
+    QLabel,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 
 
 class DataCard:

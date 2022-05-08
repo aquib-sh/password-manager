@@ -71,18 +71,18 @@ class Gmail(GoogleServices):
         -------
         Sent Message.
         """
-        if service == None:
+        if service is None:
             service = self.service
 
         try:
             message = (
                 service.users().messages().send(userId=user_id, body=message).execute()
             )
-            print("Message Id: %s" % message["id"])
+            print(f"Message Id: {message['id']}")
             return message
 
         except errors.HttpError as error:
-            print("An error occurred: %s" % error)
+            print(f"An error occurred: {error}")
 
         except Exception as error:
-            print("An error occurred: %s" % error)
+            print(f"An error occurred: {error}")

@@ -92,9 +92,7 @@ class QueryGenerator:
         )
         return (query, params)
 
-    def delete_password(
-        self, account, username, password, sitename
-    ) -> tuple:
+    def delete_password(self, account, username, password, sitename) -> tuple:
         query = f"""DELETE FROM {self.__password_table} 
             WHERE ACCOUNT=:account
             AND USERNAME=:username 
@@ -104,7 +102,7 @@ class QueryGenerator:
             "account": account,
             "username": username,
             "password": password,
-            "sitename": sitename
+            "sitename": sitename,
         }
         return (query, params)
 
@@ -160,7 +158,7 @@ class QueryExecutor:
         """
         self.cursor.execute(query, params)
         fetched_password = self.cursor.fetchone()
-        if fetched_password == None:
+        if fetched_password is None:
             return 2
 
         if fetched_password[0] == password:
@@ -172,7 +170,7 @@ class QueryExecutor:
     def get_user_email(self, query, params) -> str:
         self.cursor.execute(query, params)
         fetched_email = self.cursor.fetchone()
-        if fetched_email == None:
+        if fetched_email is None:
             if self.log:
                 print(f"[!] User {params['username']} not found")
             return ""

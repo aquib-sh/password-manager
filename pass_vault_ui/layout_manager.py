@@ -9,13 +9,13 @@ class HomeLayoutManager:
         self.cards_layout = QVBoxLayout()
         self.pcards = []
         # stores attributes of each pcards present as tuples of (username, password, site)
-        self.pcards_attr = [] 
+        self.pcards_attr = []
         self.index = -1
 
     def update_home_layout(self):
         self.app.home_window.set_layout(self.cards_layout)
 
-    def create_cards_from_list(self, data:list):
+    def create_cards_from_list(self, data: list):
         """Creates cards from list of tuples"""
         # indexing in a tuple
         USER = 1
@@ -25,7 +25,7 @@ class HomeLayoutManager:
             self.create_card(row[USER], row[PASSWORD], row[SITE])
 
     def create_card(self, username, password, site):
-        """Creates a card inside a wrapper and puts it inside the layout """
+        """Creates a card inside a wrapper and puts it inside the layout"""
         self.index += 1
 
         card = PasswordCard()
@@ -39,7 +39,7 @@ class HomeLayoutManager:
         print(f"[+] Card created with User: {username} | Password: {password}")
         self.pcards_attr.append((username, password, site))
 
-    def __delete_card(self, index:int) -> tuple:
+    def __delete_card(self, index: int) -> tuple:
         """Deletes an individual card."""
         self.pcards[index].detach_from_layout()
         del self.pcards[index]
@@ -51,7 +51,7 @@ class HomeLayoutManager:
         """
         deleted_cards_attr = []
         temp = self.pcards.copy()  # create a copy to avoid pointer bugs
-        for i in range(0, len(temp)):
+        for i in range(len(temp)):
             if temp[i].is_checked():
                 indx_of_card = self.pcards.index(temp[i])
                 deleted = self.__delete_card(indx_of_card)
@@ -63,7 +63,7 @@ class HomeLayoutManager:
     def reset(self):
         """Deletes all the cards and sets everything to the initial stage"""
         temp = self.pcards.copy()  # create a copy to avoid pointer bugs
-        for i in range(0, len(temp)):
+        for i in range(len(temp)):
             indx_of_card = self.pcards.index(temp[i])
             self.__delete_card(indx_of_card)
             self.update_home_layout()
