@@ -12,6 +12,7 @@ from pass_vault_ui.reset_password_screen import ResetPasswordWindow
 from pass_vault_ui.signup_screen import SignUpWindow
 from services.google.email import Gmail
 from services.google.token import TokenRetriever
+from database.hashing import HashOperator
 from utils import OTPGenerator
 
 
@@ -27,6 +28,7 @@ class PassVault:
         self.__setup_connections()
         self.layout_manager = HomeLayoutManager(self)
         self.otp_gen = OTPGenerator()
+        self.hash_op = HashOperator()
 
         # database manager
         self.db_manager = DBManager(config.DB_PATH)
@@ -71,7 +73,7 @@ class PassVault:
 
     def login(self):
         username = self.login_window.get_username()
-        password = self.login_window.get_password()
+        password = self.hash_op.compute_sha256(self.login_window.get_password())
         # integer number corresponding to the status of auth
         # 1 => credentials are valid
         # 2 => user does not exist
@@ -111,7 +113,7 @@ class PassVault:
         self.db_manager.add_password(
             account=self.current_user, 
             user=username, 
-            passwd=password, 
+            password=password, 
             sitename=site, 
             website = website
         )
@@ -150,6 +152,7 @@ class PassVault:
                 self.signup_window.activate_otp_input()
             else:
                 if self.__verify_otp(self.signup_window.get_dispatched_otp()):
+                    password = self.hash_op.compute_sha256(password)
                     self.db_manager.add_new_user(user, password)
                     self.signup_window.display_message(config.REG_SUCESS_MSG)
                     self.signup_window.reset()
