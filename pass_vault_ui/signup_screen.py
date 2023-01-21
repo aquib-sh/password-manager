@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtGui import QCloseEvent
 from pass_vault_ui.layouts import signup_ui
 
 
@@ -7,8 +8,12 @@ class SignUpWindow(QMainWindow):
         super().__init__()
         self.__signup_screen = signup_ui.Ui_Form()
         self.__signup_screen.setupUi(self)
-        self.__reg_pressed = 0  # n times register btn is pressed
+        self.__reg_pressed = 0
         self.__dispatched_otp = ""  # OTP give to user, for internal use
+
+    def closeEvent(self, a0: QCloseEvent) -> None:
+        self.reset()
+        return super().closeEvent(a0)
 
     def reset(self):
         self.__reg_pressed = 0
@@ -62,16 +67,16 @@ class SignUpWindow(QMainWindow):
 
     # setters
     def set_email_value(self, text):
-        self.__signup_screen.email_input = text
+        self.__signup_screen.email_input.setText(text)
 
     def set_confirm_password_value(self, text):
-        self.__signup_screen.confirm_password_inpu = text
+        self.__signup_screen.confirm_password_input.setText(text)
 
     def set_password_value(self, text):
-        self.__signup_screen.password_input = text
+        self.__signup_screen.password_input.setText(text)
 
     def set_username_value(self, text):
-        self.__signup_screen.username_input = text
+        self.__signup_screen.username_input.setText(text)
 
     def set_otp_value(self, text):
-        self.__signup_screen.otp_input = text
+        self.__signup_screen.otp_input.setText(text)
