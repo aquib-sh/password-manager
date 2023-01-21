@@ -36,7 +36,7 @@ class HomeLayoutManager:
 
         self.pcards.append(wrapper)
         self.update_home_layout()
-        print(f"[+] Card created with User: {username} | Password: {password}")
+        print(f"[+] Card created for User: {username}")
         self.pcards_attr.append((username, password, site))
 
     def __delete_card(self, index: int) -> tuple:
