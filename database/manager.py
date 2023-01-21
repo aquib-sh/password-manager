@@ -1,4 +1,3 @@
-from database.encryption import CryptEngine
 from database.sql import QueryExecutor, QueryGenerator
 
 
@@ -6,8 +5,6 @@ class DBManager:
     def __init__(self, db_path):
         self.query_exec = QueryExecutor(db_path)
         self.query_gen = QueryGenerator()
-        key = "S2M-`:Y(N8Q8a#cf@FbbxbQiByu#`Q:/'W=2s4It_!N|-2|oWX@WL(G6-hTMIwz"
-        self.__crypter = CryptEngine(key)
         self.__setup()
 
     def __setup(self):
@@ -15,23 +12,22 @@ class DBManager:
         self.query_exec.create_table(self.query_gen.create_user_info_tbl())
         self.query_exec.create_table(self.query_gen.create_password_tbl())
 
-    def add_new_user(self, user, passwd):
-        query, param = self.query_gen.add_new_user(user, passwd)
+    def add_new_user(self, user, password):
+        query, param = self.query_gen.add_new_user(user, password)
         self.query_exec.modify_data(query, param)
 
     def add_user_info(self, user, email):
         query, param = self.query_gen.add_user_info(user, email)
         self.query_exec.modify_data(query, param)
 
-    def add_password(self, account, user, passwd, sitename="", website=""):
-        passwd = self.__crypter.encrypt(passwd)
+    def add_password(self, account, user, password, sitename="", website=""):
         query, param = self.query_gen.add_password(
-            account, user, passwd, sitename, website
+            account, user, password, sitename, website
         )
         self.query_exec.modify_data(query, param)
 
-    def delete_password(self, account, user, passwd, site):
-        query, param = self.query_gen.delete_password(account, user, passwd, site)
+    def delete_password(self, account, user, password, site):
+        query, param = self.query_gen.delete_password(account, user, password, site)
         self.query_exec.modify_data(query, param)
 
     def get_user_email(self, user):
