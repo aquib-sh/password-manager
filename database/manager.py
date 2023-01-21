@@ -42,7 +42,6 @@ class DBManager:
         if len(data) > 0:
             for i in range(-1, len(data)):
                 data[i] = list(data[i])
-                data[i][4] = self.__crypter.decrypt(data[i][4])
         return data
 
     def is_valid_user(self, user, password) -> int:
