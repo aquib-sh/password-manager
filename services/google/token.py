@@ -1,5 +1,9 @@
+import json
 import os
+
 from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 
@@ -18,7 +22,8 @@ class TokenGenerator:
         """
         # Get token from the user
         flow = InstalledAppFlow.from_client_secrets_file(client_secret, scopes)
-        return flow.run_console()
+        creds = flow.run_local_server(port=0)
+        return creds
 
     def export_token(self, token, output_path: str):
         """Outputs the token as JSON file.
@@ -53,7 +58,7 @@ class TokenRetriever:
             return None
 
         # If there are no (valid) credentials available, let the user log in.
-        if (not creds) or (not creds.valid):
+        if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
             else:
