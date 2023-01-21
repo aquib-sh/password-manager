@@ -13,6 +13,7 @@ from pass_vault_ui.signup_screen import SignUpWindow
 from services.google.email import Gmail
 from services.google.token import TokenRetriever
 from database.hashing import HashOperator
+from database.encryption import CryptEngine
 from utils import OTPGenerator
 
 
@@ -34,6 +35,9 @@ class PassVault:
         self.db_manager = DBManager(config.DB_PATH)
         # user
         self.current_user = None
+
+        # encryption/decryption engine will be initialized on login
+        self.crypt_engine = None
 
         # Initialize Gmail service for emailing OTP
         self.retr = TokenRetriever()
@@ -73,7 +77,9 @@ class PassVault:
 
     def login(self):
         username = self.login_window.get_username()
-        password = self.hash_op.compute_sha256(self.login_window.get_password())
+        password = self.login_window.get_password()
+        self.crypt_engine = CryptEngine(password)
+        password = self.hash_op.compute_sha256(password)
         # integer number corresponding to the status of auth
         # 1 => credentials are valid
         # 2 => user does not exist
@@ -88,14 +94,19 @@ class PassVault:
             self.home_window.set_welcome_text(config.GREETING_MSG.format(
                 user=self.current_user)
             )
-            # get and display the passwords stored by user
-            data = self.db_manager.get_all_passwords_for_a_user(self.current_user)
-            self.layout_manager.create_cards_from_list(data)
+            self.display_home_screen()
 
         elif validity_status == 2:
             self.login_window.display_message(config.INVALID_USER_MSG.format(user=username))
         else:
             self.login_window.display_message(config.INCORRECT_PASSWORD_MSG.format(user=username))
+    
+    def display_home_screen(self):
+        """decrypt and display the passwords stored by user."""
+        data = self.db_manager.get_all_passwords_for_a_user(self.current_user)
+        for i in range(len(data)):
+            data[i][4] = self.crypt_engine.decrypt(data[i][4])
+        self.layout_manager.create_cards_from_list(data)
 
     def show_add_screen(self):
         self.edit_password_window.show()
@@ -108,12 +119,14 @@ class PassVault:
         website = self.edit_password_window.get_url_value()
         username = self.edit_password_window.get_username_value()
         password = self.edit_password_window.get_password_value()
- 
+        encrypted_password = self.crypt_engine.encrypt(password)
+
         self.layout_manager.create_card(username, password, site)
+
         self.db_manager.add_password(
             account=self.current_user, 
             user=username, 
-            password=password, 
+            password=encrypted_password, 
             sitename=site, 
             website = website
         )
@@ -185,7 +198,6 @@ class PassVault:
             password = row[1]
             site = row[2]
             self.db_manager.delete_password(self.current_user, username, password, site)
-            print(f"[+] Deleted card with User: {username} | Password: {password}")
 
 
 if __name__ == "__main__":
